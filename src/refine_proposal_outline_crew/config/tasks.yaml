@@ -1,0 +1,99 @@
+refine_proposal_outline_task:
+  description: >
+    Regenerate and refine the proposal outline based on:
+    - The user-provided `existing_outline`
+    - Uploaded RFP documents (Sections L, M, and SOW)
+    - Optional additional guidance from `knowledge_dir`
+    - A natural language `refinement_prompt` specifying additions, removals, and modifications
+
+    For each section and subsection, provide detailed enrichment:
+
+    1. **Section/Subsection Purpose** (approximately 100 words):
+       - Primary objective and strategic importance
+       - How it contributes to the overall proposal
+       - Connection to evaluation criteria
+       - Impact on win themes
+       - Specific outcomes expected
+       - Relationship to other sections
+       - Risk mitigation aspects
+       - Innovation opportunities
+       - Compliance requirements
+       - Strategic value to the client
+
+    2. **Instructions to Writer** (approximately 100 words):
+       - Specific content requirements
+       - Format and structure guidelines
+       - Key points to emphasize
+       - Common pitfalls to avoid
+       - Required attachments or supporting documents
+       - Compliance requirements
+       - Page limits or constraints
+       - Writing style and tone
+       - Technical depth required
+       - Examples or case studies to include
+       - Graphics or tables needed
+       - Cross-references to other sections
+       - Evaluation criteria alignment
+       - Win theme integration points
+
+    3. **Source Mapping**:
+       - Direct RFP references (e.g., "Section L.3.2")
+       - Related requirements from other sections
+       - Cross-references to other proposal sections
+       - Applicable regulations or standards
+       - Industry best practices
+       - Technical specifications
+       - Compliance requirements
+       - Evaluation criteria references
+
+    4. **Win Theme Alignment**:
+       - Primary win themes addressed
+       - Secondary win themes supported
+       - Competitive advantages to highlight
+       - Differentiators to emphasize
+       - Risk mitigation strategies
+       - Innovation opportunities
+       - Technical superiority points
+       - Management excellence aspects
+       - Past performance highlights
+       - Cost-effectiveness elements
+
+    5. **Context** (for subsections, approximately 100 words):
+       - Background information
+       - Strategic importance
+       - Relationship to other sections
+       - Evaluation weight/importance
+       - Technical or management considerations
+       - Risk factors to address
+       - Innovation opportunities
+       - Compliance requirements
+       - Industry best practices
+       - Client-specific considerations
+       - Competitive landscape
+       - Technical challenges
+       - Resource requirements
+       - Timeline considerations
+
+    Scenarios Covered:
+    1. **Retaining Sections**: All sections in the original `existing_outline` are kept unless explicitly removed.
+    2. **Removing Sections**: Sections are removed based on fuzzy keyword matching (e.g., "remove Executive" deletes the "Executive Summary" section).
+    3. **Adding Sections**: Sections are added based on keywords in the `refinement_prompt` (e.g., "add Technical Approach" or "add Risk").
+    4. **Modifying/Renaming Sections**: The structure or name of sections is changed according to instructions (e.g., "rename Management Approach to Organizational Strategy").
+    5. **Enriching Sections**: Each section is enriched with detailed guidance as specified above.
+    6. **Handling Requests Without Adding Sections Automatically**: Sections like "Resumes", "Past Performance", and "Technical Approach" will not be added unless explicitly requested by the user.
+
+  expected_output: >
+    A regenerated and detailed proposal outline featuring:
+    - The full structure of the original outline, with requested changes applied
+    - Only requested sections added or removed
+    - Comprehensive enrichment of sections with:
+      * Detailed purpose and strategic importance (approximately 100 words)
+      * Specific writer instructions and requirements (approximately 100 words)
+      * Complete source mapping and references
+      * Strategic win theme alignment
+      * Rich context for subsections (approximately 100 words)
+    - No formatting or style instructions; only content and structure are included
+    - Clear connections between sections and evaluation criteria
+    - Strategic guidance for proposal writers
+
+  agent: outline_refiner
