@@ -1,0 +1,114 @@
+research_task:
+  description: >
+    Extract and validate all compliance-related requirements from the RFP documents.
+
+    Focus on identifying and validating:
+    1. Explicit Requirements:
+       - "shall", "must", "are required to"
+       - "need to", "should" (when implying obligation)
+       - Direct instructions and mandates
+
+    2. Implied Requirements:
+       - Procedural steps and deadlines
+       - Evaluation criteria and factors
+       - Legal terms and conditions
+       - Eligibility criteria
+       - Submission and formatting instructions
+
+    3. Section Types:
+       - Main sections (L, M, etc.)
+       - Attachments and appendices
+       - Clauses and subclauses
+       - Cross-referenced content
+
+    For each requirement:
+    1. Validate the requirement:
+       - Confirm mandatory language
+       - Verify section context
+       - Check completeness
+       - Identify requirement type
+
+    2. Extract metadata:
+       - Section reference
+       - Requirement type
+       - Relevance score
+       - Source document
+
+    3. Format as structured blocks:
+       Section: [exact section reference]
+       Type: [requirement type]
+       Requirement: [complete requirement text]
+       Score: [relevance score]
+
+    Return validated requirements in order of:
+    1. Section reference
+    2. Requirement type
+    3. Relevance score
+
+  agent: research_agent
+  expected_output: |
+    Section: L.1.2
+    Type: submission
+    Requirement: Offerors shall submit their technical proposal in PDF format via email by June 8, 2023.
+    Score: 0.95
+
+    Section: M.3.1
+    Type: evaluation
+    Requirement: The Government will evaluate proposals based on the following factors: technical approach, past performance, and price.
+    Score: 0.92
+
+writing_task:
+  description: >
+    Transform the validated requirements into a clean, deduplicated JSON structure.
+
+    Process requirements by:
+    1. Deduplication:
+       - Compare requirement text
+       - Check section references
+       - Verify requirement types
+       - Use earliest section reference
+
+    2. Normalization:
+       - Standardize section references
+       - Clean requirement text
+       - Validate JSON structure
+       - Ensure field completeness
+
+    3. Validation:
+       - Check JSON schema
+       - Verify required fields
+       - Ensure data types
+       - Validate content
+
+    Output strict JSON format:
+    {
+      "requirements": [
+        {
+          "sectionNo": "string",  // Normalized section reference
+          "requirement": "string" // Cleaned requirement text
+        }
+      ]
+    }
+
+    Rules:
+    - Include only unique requirements
+    - Use earliest section reference
+    - Maintain exact requirement text
+    - Follow JSON schema exactly
+    - No additional fields or metadata
+
+  agent: writer_agent
+  expected_output: >
+    {
+      "requirements": [
+        {
+          "sectionNo": "L.1.2",
+          "requirement": "Offerors shall submit their technical proposal in PDF format via email by June 8, 2023."
+        },
+        {
+          "sectionNo": "M.3.1",
+          "requirement": "The Government will evaluate proposals based on the following factors: technical approach, past performance, and price."
+        }
+      ]
+    }
+
