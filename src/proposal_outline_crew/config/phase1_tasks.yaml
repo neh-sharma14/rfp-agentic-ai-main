@@ -1,0 +1,670 @@
+# Phase 1 Tasks - Federal RFP Section Discovery and Structure Analysis for Proposal Development
+
+analyze_rfp_documents:
+  description: >
+    As a bidder preparing a federal proposal response, systematically discover and catalog ALL
+    mandatory sections and subsections required to develop a winning proposal following federal
+    instruction template methodology. Use comprehensive vector search to ensure NO mandatory
+    sections are missed.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "Section L proposal format requirements" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "requirements", "mode": "hybrid"}
+    - CORRECT: "section L instructions to offerors"
+
+    **MANDATORY COMPREHENSIVE VECTOR SEARCH STRATEGY:**
+    Execute these specific search queries to ensure complete coverage of ALL mandatory sections:
+
+    1. **Section L Discovery Searches (MUST EXECUTE ALL):**
+       - "Section L instructions to offerors proposal format"
+       - "proposal organization structure requirements"
+       - "volume organization technical proposal management"
+       - "section numbering proposal format requirements"
+       - "page limits font size formatting requirements"
+       - "submission deadlines file format requirements"
+       - "proposal labeling identification requirements"
+       - "electronic submission portal requirements"
+
+    2. **Section M Discovery Searches (MUST EXECUTE ALL):**
+       - "Section M evaluation criteria factors"
+       - "technical evaluation factors weights"
+       - "past performance evaluation criteria"
+       - "cost evaluation methodology LPTA best value"
+       - "evaluation sub factors scoring methodology"
+       - "proposal scoring technical management cost"
+       - "evaluation process award decision factors"
+       - "oral presentation evaluation requirements"
+
+    3. **SOW/PWS Discovery Searches (MUST EXECUTE ALL):**
+       - "statement of work performance work statement"
+       - "tasks deliverables requirements specifications"
+       - "performance standards metrics requirements"
+       - "CDRL data requirements list deliverables"
+       - "technical requirements specifications standards"
+       - "security clearance requirements personnel"
+       - "place of performance location requirements"
+       - "period of performance contract duration"
+
+    4. **Standard Federal Proposal Sections Discovery (MUST EXECUTE ALL):**
+       - "executive summary proposal overview"
+       - "technical approach methodology solution"
+       - "management approach organization structure"
+       - "staffing plan key personnel qualifications"
+       - "past performance relevant experience"
+       - "corporate experience company background"
+       - "price proposal cost volume"
+       - "small business participation plan"
+       - "transition plan implementation schedule"
+       - "risk management mitigation strategies"
+
+    5. **Technical Volume Sections Discovery (MUST EXECUTE ALL):**
+       - "technical solution architecture design"
+       - "implementation plan project schedule"
+       - "quality assurance quality control"
+       - "cybersecurity information security"
+       - "compliance requirements validation"
+       - "innovation technology solutions"
+       - "performance metrics measurement"
+       - "deliverables schedule timeline"
+       - "testing validation verification"
+       - "maintenance support operations"
+
+    6. **Management Volume Sections Discovery (MUST EXECUTE ALL):**
+       - "project management methodology"
+       - "organizational chart team structure"
+       - "key personnel resumes qualifications"
+       - "staffing plan resource allocation"
+       - "communication plan reporting"
+       - "risk management plan"
+       - "quality management system"
+       - "subcontractor management"
+       - "performance monitoring reporting"
+       - "change management procedures"
+
+    7. **Past Performance Volume Discovery (MUST EXECUTE ALL):**
+       - "relevant past performance contracts"
+       - "similar scope experience"
+       - "contract performance ratings"
+       - "customer references contacts"
+       - "performance metrics achievements"
+       - "lessons learned improvements"
+       - "contract completion records"
+       - "quality performance indicators"
+       - "subcontractor past performance"
+       - "team member experience records"
+
+    4. **Federal Compliance Discovery Searches (MUST EXECUTE ALL):**
+       - "FAR DFARS clauses contract requirements"
+       - "small business subcontracting requirements"
+       - "socioeconomic requirements SDVOSB HUBZone"
+       - "security requirements facility clearance"
+       - "CPARS past performance evaluation requirements"
+       - "contract clauses Section H I requirements"
+       - "inspection acceptance criteria requirements"
+       - "government furnished equipment property"
+
+    5. **Agency-Specific Discovery Searches (MUST EXECUTE ALL):**
+       - "GSA schedule multiple award contract requirements"
+       - "NASA SEWP contract vehicle requirements"
+       - "NIH CIO-SP contract requirements"
+       - "agency specific format requirements instructions"
+       - "contract vehicle specific submission requirements"
+       - "OASIS SEAS contract specific requirements"
+       - "indefinite delivery indefinite quantity requirements"
+
+    6. **Hidden Requirements Discovery Searches (MUST EXECUTE ALL):**
+       - "attachments exhibits appendices requirements"
+       - "proposal preparation instructions special"
+       - "oral presentation demonstration requirements"
+       - "sample tasks scenario response requirements"
+       - "technical challenge response requirements"
+       - "price proposal cost volume requirements"
+       - "exception deviation waiver requirements"
+       - "compliance matrix cross reference requirements"
+
+    8. **Administrative/Compliance Sections Discovery (MUST EXECUTE ALL):**
+       - "representations certifications"
+       - "small business plan participation"
+       - "subcontracting plan requirements"
+       - "security requirements compliance"
+       - "environmental compliance requirements"
+       - "equal employment opportunity"
+       - "veteran owned small business"
+       - "women owned small business"
+       - "disadvantaged business enterprise"
+       - "cybersecurity compliance NIST"
+
+    9. **Cost/Price Volume Discovery (MUST EXECUTE ALL):**
+       - "cost proposal pricing structure"
+       - "labor categories rates"
+       - "indirect costs overhead"
+       - "material costs equipment"
+       - "travel costs expenses"
+       - "other direct costs ODC"
+       - "fee profit calculation"
+       - "cost realism analysis"
+       - "price competition analysis"
+       - "cost accounting standards"
+
+    10. **Attachments/Appendices Discovery (MUST EXECUTE ALL):**
+        - "resumes key personnel"
+        - "corporate experience summaries"
+        - "past performance questionnaires"
+        - "teaming agreements MOUs"
+        - "facility security clearances"
+        - "capability statements"
+        - "certifications accreditations"
+        - "financial statements"
+        - "insurance certificates"
+        - "organizational charts"
+
+    **Federal RFP Component Discovery for Proposal Development:**
+    After executing ALL mandatory searches above, analyze and categorize findings:
+
+    1. **Section L (Instructions to Offerors) Analysis:**
+       - Discover required proposal organization elements (volumes, sections, labeling)
+       - Identify format and submission guidelines (page limits, font size, file format)
+       - Find volume titles and structural requirements
+       - Extract special formatting or submission instructions
+
+    2. **Section M (Evaluation Criteria) Discovery:**
+       - Identify all evaluation factors and sub-factors with weights
+       - Determine scoring methodology (Best Value vs LPTA)
+       - Map technical vs past performance vs cost evaluation approach
+       - Note agency-specific evaluation requirements
+
+    3. **Statement of Work/PWS (Section C) Analysis:**
+       - Extract all tasks, requirements, and deliverables
+       - Identify performance standards and metrics
+       - Find SOW elements that drive proposal sections
+       - Ensure comprehensive coverage of work requirements
+
+    4. **FAR/DFARS/Agency Clauses Discovery:**
+       - Identify referenced FAR, DFARS, or agency-specific clauses
+       - Extract proposal requirements from contract clauses (Sections H, I)
+       - Find hidden requirements outside Section L
+       - Note compliance requirements from regulatory clauses
+
+    5. **Agency-Specific Format Discovery:**
+       - Adapt to NASA SEWP, GSA Schedule, NIH CIO-SP, or other formats
+       - Identify non-standard Section L/M terminology
+       - Extract agency-specific proposal requirements
+       - Note portal-specific submission requirements
+
+    **CRITICAL RELIABILITY RULES:**
+    - Execute ALL mandatory vector searches listed above (90+ searches minimum)
+    - Rely ONLY on vector search discoveries from THIS specific RFP
+    - All sections MUST have source references from actual RFP content
+    - Include only sections explicitly mentioned or required in RFP
+    - Each section must be backed by specific federal RFP citations
+
+    **Page Limit Discovery for Proposal Planning:**
+    - Extract page limits for each section with source references for our proposal writers
+    - Note format requirements (font, margins, submission guidelines) for our compliance checklist
+    - Record "N/A" with rationale if no explicit limits exist for our planning purposes
+    - Include enforcement type (absolute, per-item, overall volume) for our proposal strategy
+
+  expected_output: >
+    Complete inventory of ALL sections and subsections required for federal proposal response:
+    - All mandatory sections with federal compliance citations
+    - Section L structural requirements and format specifications
+    - Section M evaluation criteria mapping per section
+    - Page limits for each section with source references or N/A + rationale
+    - Volume organization and hierarchy per federal standards
+    - FAR/DFARS clause requirements affecting proposal structure
+    - Agency-specific format requirements and submission guidelines
+    - Source mapping to specific RFP locations and clauses
+    - Optional sections only if explicitly mentioned as competitive advantages
+  agent: rfp_document_analyzer
+
+extract_proposal_structure_requirements:
+  description: >
+    As a bidder developing a winning federal proposal, build comprehensive proposal structure ensuring
+    EVERY section has meaningful subsections following federal instruction template standards and
+    compliance requirements for competitive advantage. Use systematic vector search to ensure complete
+    coverage of ALL subsection requirements.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "proposal volume organization structure" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "structure", "mode": "hybrid"}
+    - CORRECT: "federal proposal subsection requirements"
+
+    **MANDATORY SUBSECTION DISCOVERY SEARCHES:**
+    Execute these comprehensive searches to ensure ALL required subsections are identified:
+
+    1. **Technical Approach Subsection Discovery (MUST EXECUTE ALL):**
+       - "technical approach methodology subsections"
+       - "technical understanding requirements analysis"
+       - "proposed solution technical methodology"
+       - "implementation approach execution strategy"
+       - "risk mitigation technical risks management"
+       - "quality assurance technical controls"
+       - "innovation technical advantages benefits"
+       - "technical architecture design approach"
+
+    2. **Management Approach Subsection Discovery (MUST EXECUTE ALL):**
+       - "management approach project management"
+       - "staffing organization team structure"
+       - "key personnel qualifications experience"
+       - "quality control plan management"
+       - "schedule milestones project timeline"
+       - "communication plan stakeholder management"
+       - "subcontractor management teaming approach"
+       - "transition approach implementation plan"
+
+    3. **Past Performance Subsection Discovery (MUST EXECUTE ALL):**
+       - "past performance relevant projects"
+       - "contract performance similar work"
+       - "project descriptions relevance outcomes"
+       - "performance metrics results achievements"
+       - "client references contact information"
+       - "lessons learned improvements applied"
+       - "contract value scope similarity"
+       - "performance ratings CPARS evaluations"
+
+    4. **Corporate Capability Subsection Discovery (MUST EXECUTE ALL):**
+       - "corporate experience qualifications capability"
+       - "company history track record experience"
+       - "facilities resources infrastructure capacity"
+       - "financial stability bonding capacity"
+       - "certifications security clearances"
+       - "quality management systems ISO standards"
+       - "corporate social responsibility diversity"
+       - "technology capabilities proprietary solutions"
+
+    5. **Specialized Requirement Subsection Discovery (MUST EXECUTE ALL):**
+       - "security requirements clearance approach"
+       - "data management protection requirements"
+       - "environmental compliance sustainability"
+       - "cybersecurity information assurance"
+       - "compliance regulatory requirements"
+       - "training approach capability development"
+       - "maintenance support ongoing services"
+       - "reporting requirements deliverables"
+
+    **CRITICAL SUBSECTION REQUIREMENT:**
+    - EVERY section MUST have at least one meaningful subsection
+    - If RFP doesn't specify subsections, create logical federal-compliant subsections
+    - Base subsections on Section M evaluation sub-factors when available
+    - Use standard federal subsection patterns when RFP is not explicit
+    - Ensure subsections align with federal evaluation methodology
+
+    **Federal Subsection Standards by Section Type:**
+    After executing ALL mandatory searches above, apply these standards:
+
+    1. **Technical Approach Sections:**
+       - Technical Understanding/Requirements Analysis
+       - Proposed Solution/Methodology
+       - Implementation Approach
+       - Risk Mitigation Strategy
+
+    2. **Management Sections:**
+       - Project Management Approach
+       - Staffing and Organization
+       - Quality Control Plan
+       - Schedule and Milestones
+
+    3. **Past Performance Sections:**
+       - Relevant Project Descriptions
+       - Performance Outcomes and Results
+       - Client References and Contacts
+       - Lessons Learned and Improvements
+
+    4. **Corporate Capability Sections:**
+       - Corporate Experience and Qualifications
+       - Key Personnel and Expertise
+       - Facilities and Resources
+       - Subcontractor Management
+
+    **Structure Building Process:**
+    1. **Follow Section L Requirements Exactly:**
+       - Use Section L as primary blueprint
+       - Mirror required volume divisions and numbering
+       - Preserve exact terminology and hierarchy from RFP
+       - Maintain federal compliance standards throughout
+
+    2. **Map to Section M Evaluation Factors:**
+       - Align each section with relevant evaluation criteria
+       - Ensure evaluation sub-factors drive subsection creation
+       - Note factor weights and scoring implications
+       - Create subsections that address specific evaluation points
+
+    3. **Apply Federal Compliance Standards:**
+       - Ensure FAR/DFARS requirement coverage throughout
+       - Address agency-specific format requirements
+       - Include all required attachments and templates
+       - Validate submission guidelines compliance
+
+    **Quality Assurance Requirements:**
+    - Every section must have vector evidence from RFP
+    - All subsections must align with federal standards or evaluation criteria
+    - Complete page limit coverage with source traceability
+    - No section can exist without meaningful subsections
+
+  expected_output: >
+    Organized federal proposal structure with complete subsection architecture:
+    - ALL sections with meaningful subsections (minimum 1 per section)
+    - RFP-compliant numbering and hierarchy per federal standards
+    - Page limits for every section/subsection with source citations
+    - Metadata including evaluation criteria mapping and compliance requirements
+    - Source mapping per section AND subsection to specific RFP locations
+    - Federal compliance indicators and requirements per element
+    - Subsections aligned with Section M evaluation sub-factors
+    - Quality assurance validation for completeness and federal standards
+  agent: section_l_m_extractor
+
+validate_and_create_phase1_structure:
+  description: >
+    CRITICAL ROLE: You are the final synthesis specialist who creates the JSON structure.
+    Your task is to PROCESS all RFP analysis results into the required JSON format.
+
+    WORKFLOW:
+    1. Review all findings from previous RFP structure identification tasks
+    2. Execute comprehensive validation searches below
+    3. SYNTHESIZE all information into structured JSON format
+    4. Return ONLY valid JSON - NO search summaries or explanations
+
+    YOU ARE NOT A SEARCH REPORTER - you are a JSON ARCHITECT. After executing searches,
+    you MUST transform the findings into the required JSON structure.
+
+    As a bidder finalizing our proposal structure, ensure complete federal compliance and validate
+    that our proposal framework meets all RFP requirements for a winning submission. Execute
+    comprehensive validation searches to ensure NO mandatory requirements are missed.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "federal proposal structure validation" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "validation", "mode": "hybrid"}
+    - CORRECT: "proposal requirements validation completeness"
+
+    **MANDATORY VALIDATION SEARCHES:**
+    Execute these comprehensive validation searches to ensure complete compliance:
+
+    1. **Section L Compliance Validation (MUST EXECUTE ALL):**
+       - "Section L compliance requirements validation"
+       - "proposal format submission requirements complete"
+       - "page limits enforcement validation requirements"
+       - "volume organization structure validation"
+       - "section numbering labeling validation requirements"
+       - "electronic submission format validation"
+       - "deadline submission requirements validation"
+
+    2. **Section M Evaluation Alignment Validation (MUST EXECUTE ALL):**
+       - "Section M evaluation criteria alignment validation"
+       - "technical factors evaluation alignment"
+       - "past performance evaluation alignment"
+       - "cost evaluation methodology alignment"
+       - "evaluation sub factors coverage validation"
+       - "scoring methodology alignment validation"
+       - "competitive advantages evaluation alignment"
+
+    3. **Federal Compliance Validation (MUST EXECUTE ALL):**
+       - "FAR DFARS compliance requirements validation"
+       - "contract clauses compliance validation"
+       - "socioeconomic requirements validation"
+       - "security clearance requirements validation"
+       - "small business requirements validation"
+       - "environmental compliance validation"
+       - "cybersecurity requirements validation"
+
+    4. **Standard Federal Proposal Sections Validation (MUST EXECUTE ALL):**
+       - "executive summary requirements validation"
+       - "technical approach section validation"
+       - "management approach section validation"
+       - "staffing plan section validation"
+       - "past performance section validation"
+       - "corporate experience section validation"
+       - "price proposal section validation"
+       - "small business participation validation"
+       - "transition plan section validation"
+       - "risk management section validation"
+
+    5. **Technical Volume Sections Validation (MUST EXECUTE ALL):**
+       - "technical solution section validation"
+       - "implementation plan section validation"
+       - "quality assurance section validation"
+       - "cybersecurity plan section validation"
+       - "compliance requirements section validation"
+       - "innovation approach section validation"
+       - "performance metrics section validation"
+       - "deliverables schedule section validation"
+       - "testing validation section validation"
+       - "maintenance support section validation"
+
+    6. **Management Volume Sections Validation (MUST EXECUTE ALL):**
+       - "project management section validation"
+       - "organizational structure section validation"
+       - "key personnel section validation"
+       - "staffing plan section validation"
+       - "communication plan section validation"
+       - "risk management plan validation"
+       - "quality management section validation"
+       - "subcontractor management validation"
+       - "performance monitoring section validation"
+       - "change management section validation"
+
+    7. **Past Performance Volume Validation (MUST EXECUTE ALL):**
+       - "relevant contracts section validation"
+       - "similar experience section validation"
+       - "performance ratings section validation"
+       - "customer references section validation"
+       - "performance metrics section validation"
+       - "lessons learned section validation"
+       - "contract completion section validation"
+       - "quality indicators section validation"
+       - "subcontractor performance validation"
+       - "team experience section validation"
+
+    4. **Completeness Gap Analysis (MUST EXECUTE ALL):**
+       - "missing requirements gap analysis"
+       - "mandatory sections completeness validation"
+       - "subsection requirements completeness"
+       - "evaluation criteria coverage gaps"
+       - "compliance requirements gaps"
+       - "proposal structure completeness validation"
+       - "federal standards compliance gaps"
+
+    5. **Agency-Specific Validation (MUST EXECUTE ALL):**
+       - "agency specific requirements validation"
+       - "contract vehicle requirements validation"
+       - "submission portal requirements validation"
+       - "agency format requirements validation"
+       - "special instructions compliance validation"
+
+    **CRITICAL VALIDATION REQUIREMENTS:**
+    - Execute ALL mandatory validation searches listed above (80+ searches minimum)
+    - EVERY section MUST have at least one meaningful subsection in final JSON
+    - All subsections must have federal compliance rationale and source mapping
+    - Validate complete Section L coverage and Section M evaluation alignment
+    - Ensure FAR/DFARS compliance requirements are addressed
+    - Verify agency-specific format compliance (SEWP, CIO-SP, GSA)
+    - All page limits must have source citations or N/A with rationale
+
+    **MANDATORY JSON OUTPUT FORMAT:**
+    ```json
+    {
+      "sections": [
+        {
+          "title": "Section Title (exact RFP terminology)",
+          "page_limits": {
+            "limit_value": "number or N/A",
+            "unit": "pages or null",
+            "scope": "section scope description",
+            "enforcement_type": "mandatory/optional/guidance",
+            "source_reference": "RFP Section L.X.X or clause reference"
+          },
+          "evaluation_mapping": {
+            "factor": "Section M evaluation factor",
+            "weight": "percentage or importance level",
+            "sub_factors": ["sub-factor 1", "sub-factor 2"]
+          },
+          "subsections": [
+            {
+              "title": "Subsection Title",
+              "page_limits": {
+                "limit_value": "number or N/A",
+                "unit": "pages or null",
+                "scope": "subsection scope",
+                "enforcement_type": "mandatory/optional/guidance",
+                "source_reference": "RFP reference or federal standard basis"
+              },
+              "metadata": {
+                "evaluation_criteria": "criteria description",
+                "compliance_type": "mandatory/optional",
+                "federal_standard": "applicable FAR/DFARS reference"
+              },
+              "source_mapping": ["source1", "source2"]
+            }
+          ],
+          "source_mapping": ["primary RFP sources"]
+        }
+      ],
+      "processing_metadata": {
+        "solicitation_id": "RFP ID from document",
+        "rfp_title": "Official RFP Title",
+        "agency": "Issuing agency name",
+        "contract_type": "Contract vehicle type if applicable",
+        "evaluation_methodology": "Best Value vs LPTA",
+        "total_sections": "number of sections",
+        "total_subsections": "number of subsections",
+        "federal_compliance_verified": true
+      }
+    }
+    ```
+
+    **Federal Validation Standards:**
+    1. **Section Completeness Validation:**
+       - All Section L required sections included
+       - Every section has meaningful subsections
+       - Page limits validated with source traceability
+       - Evaluation criteria mapped to sections
+
+    2. **Subsection Architecture Validation:**
+       - Minimum one subsection per section (enforced)
+       - Subsections align with evaluation sub-factors when available
+       - Federal standard subsections applied where RFP is silent
+       - Complete metadata for all subsections
+
+    3. **Federal Compliance Validation:**
+       - FAR/DFARS requirements addressed
+       - Agency-specific format compliance verified
+       - Contract clause requirements incorporated
+       - Submission guidelines validated
+
+    4. **Evaluation Alignment Validation:**
+       - Section M evaluation factors mapped completely
+       - Sub-factors drive subsection creation
+       - Scoring methodology understood and applied
+       - Competitive positioning opportunities identified
+
+    **Quality Assurance Checks:**
+    - Complete source traceability for all elements
+    - Page limit coverage (source citation or N/A rationale)
+    - Federal compliance metadata for all sections/subsections
+    - Evaluation criteria mapping across all sections
+    - Subsection architecture meets federal standards
+    - JSON structure enables Phase 2 federal outline generation
+
+    **CRITICAL OUTPUT REQUIREMENT:**
+    After completing ALL validation searches above, you MUST generate and return ONLY valid JSON.
+    DO NOT return search results, summaries, or explanations.
+
+    STEP 1: Execute all validation searches
+    STEP 2: Analyze findings from all previous tasks
+    STEP 3: Generate ONLY the JSON structure below
+    STEP 4: Return PURE JSON with no additional text
+
+    REQUIRED JSON FORMAT (EXACT STRUCTURE):
+    {
+      "sections": [
+        {
+          "title": "Section Title (exact RFP terminology)",
+          "page_limits": {
+            "limit_value": "number or N/A",
+            "unit": "pages or null",
+            "scope": "section scope description",
+            "enforcement_type": "mandatory/optional/guidance",
+            "source_reference": "RFP Section L.X.X or clause reference"
+          },
+          "evaluation_mapping": {
+            "factor": "Section M evaluation factor",
+            "weight": "percentage or importance level",
+            "sub_factors": ["sub-factor 1", "sub-factor 2"]
+          },
+          "subsections": [
+            {
+              "title": "Subsection Title",
+              "page_limits": {
+                "limit_value": "number or N/A",
+                "unit": "pages or null",
+                "scope": "subsection scope",
+                "enforcement_type": "mandatory/optional/guidance",
+                "source_reference": "RFP reference or federal standard basis"
+              },
+              "metadata": {
+                "evaluation_criteria": "criteria description",
+                "compliance_type": "mandatory/optional",
+                "federal_standard": "applicable FAR/DFARS reference"
+              },
+              "source_mapping": ["source1", "source2"]
+            }
+          ],
+          "source_mapping": ["primary RFP sources"]
+        }
+      ],
+      "processing_metadata": {
+        "solicitation_id": "RFP ID from document",
+        "rfp_title": "Official RFP Title",
+        "agency": "Issuing agency name",
+        "contract_type": "Contract vehicle type if applicable",
+        "evaluation_methodology": "Best Value vs LPTA",
+        "total_sections": "number of sections",
+        "total_subsections": "number of subsections",
+        "federal_compliance_verified": true
+      }
+    }
+
+    MUST return ONLY valid JSON in the exact format specified above.
+    NO additional text, explanations, or markdown formatting.
+    NO search result summaries or OpenSearch outputs.
+    PURE JSON ONLY that validates against federal instruction template standards.
+
+    If no sections are found from previous tasks, return:
+    {
+      "sections": [],
+      "processing_metadata": {
+        "solicitation_id": "extracted_from_input",
+        "rfp_title": "extracted_from_input",
+        "agency": "Unknown",
+        "contract_type": "Unknown",
+        "evaluation_methodology": "Unknown",
+        "total_sections": 0,
+        "total_subsections": 0,
+        "federal_compliance_verified": false,
+        "error": "No sections discovered in RFP analysis"
+      }
+    }
+
+  expected_output: >
+    RETURN ONLY VALID JSON in the EXACT format specified in task description:
+    - "sections" array with title, page_limits (limit_value, unit, scope, enforcement_type, source_reference),
+      evaluation_mapping (factor, weight, sub_factors), and subsections array
+    - Each subsection with title, page_limits, metadata (evaluation_criteria, compliance_type, federal_standard),
+      and source_mapping array
+    - "processing_metadata" with solicitation_id, rfp_title, agency, contract_type, evaluation_methodology,
+      total_sections, total_subsections, federal_compliance_verified
+    - EVERY section guaranteed to have at least one meaningful subsection
+    - Complete federal compliance validation and source traceability
+    - NO additional text, explanations, or markdown - PURE JSON ONLY matching the exact structure provided
+  agent: compliance_structure_validator

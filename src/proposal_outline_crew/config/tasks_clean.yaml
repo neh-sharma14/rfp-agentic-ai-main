@@ -1,0 +1,249 @@
+# Phase 1 Tasks - Enhanced RFP Structure Analysis and Shredding
+analyze_rfp_documents:
+  description: >
+    Comprehensively analyze all RFP documents to identify proposal structure requirements:
+
+    **Primary Analysis Focus:**
+    - Section L (Instructions to Offerors): Identify required proposal organization (volumes, sections,
+      labeling), format guidelines (page limits, font size, file format), and submission requirements
+    - Section M (Evaluation Criteria): Extract evaluation factors, sub-factors, weights, scoring
+      methodology, and determine if Best Value vs LPTA
+    - Statement of Work/PWS (Section C): Identify all tasks, requirements, and deliverables
+    - Referenced FAR/DFARS Clauses: Find clauses imposing proposal requirements (often in Sections H, I)
+    - Attachments (Section J & others): Identify required templates, forms, compliance matrices
+
+    **Hidden Requirements Detection:**
+    - Look for proposal requirements "hidden" outside Section L (e.g., in SOW, Section H clauses)
+    - Identify compliance instructions scattered throughout documents
+    - Find agency-specific requirements (NASA SEWP, GSA, NIH CIO-SP formats)
+    - Note file naming conventions, formatting rules, submission deadlines
+
+    **Key Information to Extract:**
+    - Required volume structure and titles
+    - Section numbering and hierarchy requirements
+    - Page limits per section/volume
+    - Evaluation factor weights and importance
+    - Required attachments and templates
+    - Compliance deadlines and submission rules
+
+    Solicitation Package: {rfp_document}
+    Unique ID for search: {unique_id}
+  expected_output: >
+    Comprehensive analysis identifying all proposal structure requirements, evaluation criteria,
+    compliance obligations, and formatting requirements from across the entire RFP package.
+  agent: rfp_document_analyzer
+
+extract_proposal_structure_requirements:
+  description: >
+    Based on the comprehensive RFP analysis, extract and organize the specific proposal structure
+    requirements following the instruction template guidelines:
+
+    **Structure Extraction Priority:**
+    1. Follow Section L's order exactly - use as primary blueprint for proposal hierarchy
+    2. Map structure to Section M evaluation factors for alignment
+    3. Include all required volumes/sections (Administrative, Technical, Past Performance, Price)
+    4. Preserve RFP's own numbering and terminology
+    5. Account for agency-specific variations (NASA SEWP, GSA, DoD formats)
+
+    **For Each Required Section/Volume:**
+    - Extract exact section titles and numbering from RFP
+    - Identify section purpose and compliance requirements
+    - Note page limits and format requirements
+    - Map to corresponding evaluation factors from Section M
+    - Identify required attachments or templates
+    - Note any special instructions or hidden requirements
+
+    **Compliance Mapping:**
+    - Create traceability from each section to RFP source (Section L.X.X, SOW Y.Y, etc.)
+    - Ensure every "shall" and "must" requirement has a designated section
+    - Account for FAR/DFARS clause requirements
+    - Include submission and format compliance requirements
+
+    Previous Analysis: {previous_task_output}
+  expected_output: >
+    Structured extraction of all required proposal sections with their purposes, requirements,
+    evaluation factor alignments, and source traceability from the RFP.
+  agent: section_l_m_extractor
+
+validate_and_create_phase1_structure:
+  description: >
+    Validate the extracted proposal structure requirements and create the Phase 1 JSON output
+    that will be used by Phase 2 for detailed outline generation:
+
+    **Validation Requirements:**
+    - Ensure every Section L requirement has a corresponding proposal section
+    - Verify all evaluation factors from Section M are covered
+    - Confirm no "hidden" requirements are missed
+    - Validate proper hierarchical numbering and organization
+    - Check compliance with agency-specific format requirements
+
+    **JSON Structure Creation:**
+    Create a comprehensive JSON structure for Phase 1 output with the following enhanced format:
+
+    [
+        {
+            "section_id": "1",
+            "section_number": "I" or "1.0" (using RFP's numbering),
+            "section_title": "Volume I - Technical Proposal" (exact RFP wording),
+            "section_type": "volume" or "section" or "subsection",
+            "purpose": "Detailed purpose explaining why this section exists and what evaluators seek",
+            "compliance_requirements": ["Section L.3.1", "Section M Factor 1"],
+            "page_limits": "20 pages maximum",
+            "format_requirements": "12-pt font, 1-inch margins",
+            "evaluation_factor": "Technical Factor 1 - 40% weight",
+            "required_attachments": ["Template J-3", "Resume Format"],
+            "subsections": [
+                {
+                    "sub_section_id": "1.1",
+                    "section_number": "1.1",
+                    "section_title": "Technical Approach",
+                    "section_type": "subsection",
+                    "purpose": "Demonstrate understanding and approach to requirements",
+                    "compliance_requirements": ["Section L.3.1.1", "SOW Section 2.1"],
+                    "evaluation_criteria": "Innovation, Risk, Technical Understanding",
+                    "specific_requirements": [
+                        "Address understanding of requirements",
+                        "Describe approach to tasks X, Y, Z",
+                        "Include project schedule",
+                        "Demonstrate risk mitigation"
+                    ]
+                }
+            ]
+        }
+    ]
+
+    **Quality Assurance:**
+    - Ensure valid JSON format with proper escaping
+    - Verify all required fields are populated
+    - Confirm traceability to RFP sources
+    - Validate hierarchical consistency
+    - Check for completeness against RFP requirements
+
+    Extracted Requirements: {previous_task_output}
+  expected_output: >
+    Complete Phase 1 JSON structure containing all proposal sections and subsections with
+    detailed requirements, compliance mappings, and evaluation criteria ready for Phase 2 processing.
+  agent: compliance_structure_validator
+
+# Phase 2 Tasks - Detailed Proposal Outline Generation per Instruction Template
+extract_section_specific_content:
+  description: |
+    Extract comprehensive content for the specific section/subsection from Phase 1 structure.
+
+    **Current Section Focus:**
+    Section: {current_section}
+    Section Type: {section_type}
+
+    **Content Extraction Requirements:**
+    1. **Section L Analysis**: Extract all compliance requirements for this specific section
+    2. **Section M Mapping**: Identify evaluation criteria, weights, and scoring factors
+    3. **SOW/PWS Requirements**: Find all tasks and deliverables relevant to this section
+    4. **Hidden Requirements**: Search for requirements outside Section L that apply
+    5. **Attachments & Templates**: Identify required forms, templates, or attachments
+    6. **Format Requirements**: Page limits, font requirements, submission guidelines
+
+    **Extraction Strategy:**
+    - Use semantic search to find all RFP content related to this section
+    - Look for "shall", "must", "should" requirements specific to this section
+    - Find evaluation sub-factors and criteria for scoring
+    - Identify any agency-specific requirements (NASA SEWP, GSA, DoD formats)
+    - Search for compliance instructions scattered throughout documents
+
+    **Output Requirements:**
+    Extract and organize all RFP content with source citations for traceability.
+    Include exact RFP language for compliance requirements and evaluation criteria.
+  expected_output: |
+    Complete extraction of all RFP content relevant to the specific section including:
+    - Section L compliance requirements with citations
+    - Section M evaluation criteria and weights
+    - SOW/PWS tasks and deliverables
+    - Format and submission requirements
+    - Required attachments or templates
+    - Source traceability for all requirements
+  agent: opensearchqueryagent
+
+map_compliance_and_evaluation_criteria:
+  description: |
+    Map extracted content to specific compliance requirements and evaluation criteria following
+    the instruction template methodology.
+
+    **Compliance Mapping Process:**
+    1. **Requirement Classification**: Categorize each requirement as mandatory vs. optional
+    2. **Evaluation Alignment**: Map requirements to Section M evaluation factors
+    3. **Win Theme Integration**: Identify opportunities for win theme emphasis
+    4. **Risk Assessment**: Note high-risk compliance areas requiring special attention
+    5. **Scoring Strategy**: Understand how this section contributes to overall evaluation
+
+    **Detailed Mapping for Current Section:**
+    - Map each compliance requirement to specific RFP source (Section L.X.X, SOW Y.Y)
+    - Identify evaluation sub-factors and their relative importance/weights
+    - Note Best Value vs LPTA implications for this section
+    - Determine which win themes align with evaluation criteria
+    - Identify discriminators and scoring opportunities
+
+    **Quality Assurance:**
+    - Ensure every "shall" and "must" requirement is captured
+    - Verify alignment between compliance requirements and evaluation factors
+    - Confirm no hidden requirements are missed
+    - Validate win theme relevance to evaluation criteria
+
+    Current Section Data: {section_data}
+    Extracted Content: {previous_task_output}
+  expected_output: |
+    Comprehensive mapping showing:
+    - Each compliance requirement with RFP source citation
+    - Corresponding evaluation criteria and sub-factors
+    - Win theme alignment opportunities
+    - Risk levels and scoring strategies
+    - Traceability matrix for audit purposes
+  agent: compliancemappingagent
+
+generate_detailed_json_outline:
+  description: |
+    Generate the detailed JSON proposal outline for this section following the exact
+    instruction template schema and requirements.
+
+    **JSON Schema Requirements (Per Instruction Template):**
+    Generate a JSON object with the following mandatory fields:
+    - section_number: Hierarchical identifier matching RFP structure
+    - heading: Exact or very close RFP wording for section title
+    - section_purpose: 1-3 sentence explanation of section intent
+    - instructions_to_writer: Detailed, actionable guidance (most important field)
+    - source_mapping: Array of specific RFP references
+    - win_theme_alignment: Array of relevant win theme names/IDs
+
+    **Instructions to Writer Requirements:**
+    Create comprehensive, actionable instructions covering:
+    1. **Compliance Coverage**: Every Section L requirement for this section
+    2. **Evaluation Strategy**: How to score well on Section M criteria
+    3. **Win Theme Integration**: Specific guidance on incorporating win themes
+    4. **Content Guidance**: What to include, how to structure, formatting tips
+    5. **Risk Mitigation**: Compliance warnings and critical requirements
+    6. **Templates/Attachments**: Required forms or templates to use
+
+    **Quality Standards:**
+    - Instructions must be 500+ words minimum with specific, actionable guidance
+    - Section purpose must be 200-250 words explaining context and evaluation focus
+    - Source mapping must cite specific RFP sections/clauses
+    - Win theme alignment must be strategically relevant
+    - JSON must be well-formed and validate properly
+
+    **Template Compliance:**
+    Follow the exact instruction template format for federal proposal outlines.
+    Ensure complete traceability and compliance coverage for audit purposes.
+
+    Section Mapping Data: {previous_task_output}
+    Current Section: {current_section}
+  expected_output: |
+    A detailed JSON outline object following the instruction template schema:
+    {
+      "section_number": "X.X",
+      "heading": "Section Title per RFP",
+      "section_purpose": "Detailed 200-250 word explanation...",
+      "instructions_to_writer": "Comprehensive 500+ word actionable guidance...",
+      "source_mapping": ["RFP Section L.X.X", "Section M.Y.Y", "SOW Z.Z"],
+      "win_theme_alignment": ["Theme1", "Theme2"]
+    }
+
+    Must be valid JSON format ready for proposal writers to use as blueprint.
+  agent: jsonstructureagent

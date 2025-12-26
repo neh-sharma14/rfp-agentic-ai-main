@@ -1,0 +1,193 @@
+# Phase 1 Tasks - Mandatory RFP Section Discovery and Structure Analysis
+analyze_rfp_documents:
+  description: >
+    Systematically identify and catalog EVERY mandatory section and subsection required for federal RFP responses using comprehensive checklists.
+
+    **MANDATORY FEDERAL PROPOSAL SECTIONS CHECKLIST - VERIFY ALL ARE IDENTIFIED:**
+
+    **VOLUME I - ADMINISTRATIVE/COMPLIANCE (ALWAYS MANDATORY):**
+    1. Cover Page/Title Page (with solicitation number, submission date, company info)
+    2. Table of Contents (with page numbers and section references)
+    3. Executive Summary (2-4 pages max, overview of entire proposal)
+    4. Compliance Matrix/Requirements Matrix (every Section L requirement mapped)
+    5. Representations and Certifications (as specified in RFP)
+    6. Required Forms (SF-33, SF-1449, etc. as specified)
+    7. Small Business Subcontracting Plan (if applicable)
+    8. Contract Terms and Conditions Response
+    9. Assumptions and Clarifications
+    10. Corporate Experience Summary
+
+    **VOLUME II - TECHNICAL PROPOSAL (ALWAYS MANDATORY):**
+    1. Technical Understanding and Approach
+    2. Solution Architecture and Technical Design
+    3. Implementation Methodology and Work Plan
+    4. Risk Management and Mitigation Strategy
+    5. Quality Assurance and Quality Control Plan
+    6. Security Approach (if applicable)
+    7. Innovation and Value-Added Services
+    8. Transition/Phase-in Plan
+    9. Technical Requirements Compliance Matrix
+    10. System Integration and Interoperability
+
+    **VOLUME III - MANAGEMENT PROPOSAL (ALWAYS MANDATORY):**
+    1. Management Approach and Philosophy
+    2. Organizational Structure and Team Organization
+    3. Project Management Methodology
+    4. Key Personnel Qualifications and Resumes
+    5. Staffing Plan and Resource Allocation
+    6. Subcontractor Management (if applicable)
+    7. Communication and Reporting Plans
+    8. Performance Management and Metrics
+    9. Contract Management Approach
+    10. Training and Knowledge Transfer Plan
+
+    **VOLUME IV - PAST PERFORMANCE (ALWAYS MANDATORY):**
+    1. Past Performance Summary and Overview
+    2. Relevant Contract Descriptions (minimum 3-5 contracts)
+    3. Performance Metrics and Outcomes
+    4. Client References and Contact Information
+    5. Lessons Learned and Continuous Improvement Examples
+    6. Team Past Performance (if teaming)
+    7. Subcontractor Past Performance (if applicable)
+    8. Past Performance Questionnaire Responses
+
+    **VOLUME V - PRICING/COST (ALWAYS MANDATORY):**
+    1. Cost/Price Summary
+    2. Labor Categories and Fully Loaded Rates
+    3. Cost Breakdown by CLIN/Task
+    4. Cost Narrative and Assumptions
+    5. Cost Realism Analysis (if required)
+    6. Pricing Models and Rate Justification
+
+    **RFP-SPECIFIC MANDATORY SECTIONS DISCOVERY:**
+    Using OpenSearch tool with unique ID: {unique_id}, systematically search for:
+    - Section L explicit requirements for additional mandatory sections
+    - SOW/PWS requirements that mandate specific proposal sections
+    - Section M evaluation factors requiring dedicated proposal sections
+    - Attachment requirements that mandate proposal content
+    - Special agency requirements (NASA SEWP, GSA, DoD-specific)
+    - Clause-driven requirements (FAR/DFARS clauses requiring proposal content)
+
+    **MANDATORY SUBSECTION IDENTIFICATION:**
+    For each mandatory section identified, discover ALL required subsections by:
+    - Analyzing Section L subsection requirements
+    - Breaking down SOW tasks into subsection requirements
+    - Mapping evaluation criteria to required subsections
+    - Identifying compliance-driven subsections
+    - Including industry best practice subsections for competitive advantage
+
+  expected_output: >
+    Complete inventory of ALL mandatory sections and subsections including:
+    - Standard federal proposal mandatory sections (verified against checklist)
+    - RFP-specific mandatory sections discovered through analysis
+    - Required subsections for each mandatory section
+    - Source citations for every mandatory requirement
+    - Compliance obligations and evaluation mappings
+    - Page limits and format requirements for each section
+  agent: rfp_document_analyzer
+
+extract_proposal_structure_requirements:
+  description: >
+    Build comprehensive mandatory section hierarchy combining standard federal requirements with RFP-specific mandatory elements.
+
+    **MANDATORY SECTION HIERARCHY CONSTRUCTION:**
+
+    **STEP 1: VERIFY STANDARD MANDATORY SECTIONS**
+    Confirm ALL standard mandatory sections are included:
+    - Volume I (Administrative): 10+ subsections minimum
+    - Volume II (Technical): 10+ subsections minimum
+    - Volume III (Management): 10+ subsections minimum
+    - Volume IV (Past Performance): 8+ subsections minimum
+    - Volume V (Pricing): 5+ subsections minimum
+
+    **STEP 2: ADD RFP-SPECIFIC MANDATORY SECTIONS**
+    Based on analysis, add sections mandated by:
+    - Section L explicit requirements
+    - SOW/PWS task requirements
+    - Section M evaluation factor requirements
+    - Agency-specific requirements
+    - Contract type requirements (IDIQ, Task Order, etc.)
+
+    **STEP 3: MANDATORY SUBSECTION DEVELOPMENT**
+    For each mandatory section, ensure comprehensive subsection coverage:
+    - Compliance-driven subsections (every "shall" and "must" requirement)
+    - Evaluation-driven subsections (every scoring criterion)
+    - Deliverable-driven subsections (every SOW requirement)
+    - Best practice subsections for competitive advantage
+
+    **STEP 4: STRUCTURE VALIDATION**
+    - Minimum 9 top-level sections (5 standard + 4 additional minimum)
+    - Every section has minimum 3 subsections
+    - All Section L requirements mapped to sections/subsections
+    - All evaluation factors covered by sections/subsections
+    - All SOW requirements addressed in sections/subsections
+
+    Use the comprehensive analysis from the previous task to build the mandatory structure.
+  expected_output: >
+    Complete hierarchical proposal structure including:
+    - ALL standard mandatory federal proposal sections
+    - ALL RFP-specific mandatory sections
+    - Comprehensive subsection breakdown for each mandatory section
+    - Minimum 9 top-level sections with 3+ subsections each
+    - Complete compliance and evaluation mappings
+    - Source traceability for every mandatory requirement
+  agent: section_l_m_extractor
+
+validate_and_create_phase1_structure:
+  description: >
+    Validate mandatory section completeness and create comprehensive Phase 1 JSON output with all required elements.
+
+    **MANDATORY SECTION COMPLETENESS VALIDATION:**
+
+    **CHECKLIST VALIDATION - CONFIRM ALL MANDATORY SECTIONS PRESENT:**
+    ✓ Volume I - Administrative (10+ subsections)
+    ✓ Volume II - Technical (10+ subsections)
+    ✓ Volume III - Management (10+ subsections)
+    ✓ Volume IV - Past Performance (8+ subsections)
+    ✓ Volume V - Pricing (5+ subsections)
+    ✓ Additional RFP-specific mandatory sections (minimum 4 more)
+    ✓ Minimum 9 total top-level sections
+    ✓ Every section has non-empty subsections array (minimum 3 subsections each)
+
+    **MANDATORY SUBSECTION VALIDATION:**
+    For each mandatory section, verify required subsections exist:
+    - Compliance subsections (all Section L requirements)
+    - Evaluation subsections (all Section M criteria)
+    - Deliverable subsections (all SOW requirements)
+    - Format subsections (attachments, forms, templates)
+
+    **AUTO-GENERATION RULES FOR MISSING MANDATORY ELEMENTS:**
+    - If any standard mandatory section is missing, auto-generate it with placeholder subsections
+    - If fewer than 9 top-level sections exist, auto-generate additional sections
+    - If any section lacks subsections, create minimum 3 placeholder subsections
+    - Mark all auto-generated elements with: auto_generated: true, notes: "explanation"
+
+    **JSON STRUCTURE REQUIREMENTS:**
+    Every section must include:
+    - section_id, section_number, section_title, section_type
+    - purpose (detailed explanation of section intent)
+    - compliance_requirements (array of RFP citations)
+    - evaluation_factor (how section supports evaluation)
+    - page_limits, format_requirements
+    - required_attachments (if applicable)
+    - subsections (array with minimum 3 subsections)
+
+    Every subsection must include:
+    - sub_section_id, section_number, section_title, section_type
+    - purpose (explanation of subsection intent)
+    - compliance_requirements (specific RFP citations)
+    - evaluation_criteria (how subsection is scored)
+    - specific_requirements (detailed requirements list)
+    - win_theme_opportunities (competitive positioning)
+
+    Use the structured requirements from the previous task to create the final mandatory structure.
+  expected_output: >
+    Complete Phase 1 JSON structure with ALL mandatory elements:
+    - Minimum 9 top-level sections (5 standard + 4+ additional)
+    - Every section has minimum 3 subsections (non-empty subsections array)
+    - Complete metadata for all sections and subsections
+    - 100% coverage of all mandatory requirements
+    - Audit-ready compliance traceability
+    - Competitive positioning elements
+    - Auto-generated placeholders marked appropriately
+  agent: compliance_structure_validator

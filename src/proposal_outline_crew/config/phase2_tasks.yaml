@@ -1,0 +1,413 @@
+# Phase 2 Tasks - Detailed Proposal Outline Generation for Winning Federal Proposals
+
+# CRITICAL: ALL OPENSEARCH QUERIES MUST BE SIMPLE TEXT STRINGS ONLY
+# NEVER USE JSON FORMAT: {"query": "...", "mode": "..."}
+# ALWAYS USE PLAIN TEXT: "section L compliance requirements"
+
+analyze_rfp_documents_and_extract_requirements:
+  description: >
+    As a bidder developing a winning federal proposal, conduct comprehensive analysis of all RFP
+    documents to extract and organize requirements that our proposal must address following federal
+    proposal instruction template methodology.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "section L instructions to offerors" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "requirements", "mode": "hybrid"}
+    - CORRECT: "section L proposal organization requirements"
+    - MANDATORY: Query parameter must be a simple string like "evaluation criteria"
+
+    **Current Section Focus for Our Proposal:**
+    Item Type: {item_type}
+    Section Title: {section_title}
+    Subsection Title: {subsection_title}
+    Section Context: {section_context}
+    Subsection Context: {subsection_context}
+
+    **Document Analysis Requirements for Our Proposal Development (Bidder Perspective):**
+    1. **Section L (Instructions to Offerors) Analysis for Our Compliance:**
+       - Extract required proposal organization (volumes, sections, labeling) our team must follow
+       - Identify format and submission guidelines (page limits, font size, file format) for our production team
+       - Note volume titles and structural requirements for our proposal architecture
+       - Find any special formatting or submission instructions that impact our delivery strategy
+
+    2. **Section M (Evaluation Criteria) Extraction for Our Competitive Strategy:**
+       - Extract all evaluation factors and sub-factors with relative importance/weights affecting our score
+       - Identify scoring methodology (Best Value vs LPTA) to guide our pricing and technical approach
+       - Map technical vs past performance vs cost evaluation weights for our proposal emphasis
+       - Note any agency-specific evaluation approaches that our proposal must address
+
+    3. **Statement of Work/PWS (Section C) Analysis for Our Solution Development:**
+       - Extract all tasks, requirements, and deliverables our solution must address
+       - Identify performance standards and metrics our team must meet or exceed
+       - Note any SOW elements not explicitly mentioned in Section L that our proposal must cover
+       - Ensure comprehensive coverage of all work requirements for our complete response
+
+    4. **FAR/DFARS/Agency Clauses Review for Our Compliance Strategy:**
+       - Identify all referenced FAR, DFARS, or agency-specific clauses our proposal must address
+       - Extract proposal requirements from contract clauses (Sections H, I) for our compliance matrix
+       - Find "hidden" requirements outside Section L (e.g., transition plans in SOW)
+       - Note compliance requirements from regulatory clauses
+
+    5. **Attachments and Templates (Section J & Others):**
+       - Catalog all required templates, forms, and attachments
+       - Extract instructions from templates (resume formats, past performance questionnaires)
+       - Identify required pricing spreadsheets, org charts, or technical formats
+       - Note file naming conventions and submission requirements
+
+    6. **Agency-Specific Adaptations:**
+       - Adapt to NASA SEWP, GSA Schedule, NIH CIO-SP, or other GWAC formats
+       - Identify non-standard Section L/M terminology
+       - Extract proposal instructions from agency-specific formats
+       - Note any portal-specific submission requirements
+
+    **Search Strategy for Current Section:**
+    - Search using section/subsection title and number
+    - Look for "shall", "must", "should" requirements specific to this section
+    - Find evaluation sub-factors and scoring criteria
+    - Identify compliance warnings and critical requirements
+    - Search for formatting, page limits, and submission guidelines
+
+    **Output Requirements:**
+    Extract and organize all RFP content with precise source citations for full traceability.
+    Include exact RFP language for compliance requirements and evaluation criteria.
+  expected_output: >
+    Comprehensive extraction of all RFP content relevant to the specific section/subsection:
+    - Section L compliance requirements with exact citations
+    - Section M evaluation criteria, weights, and scoring methodology
+    - SOW/PWS tasks and deliverables mapped to this section
+    - Format requirements (page limits, fonts, submission guidelines)
+    - Required attachments, templates, and forms
+    - FAR/DFARS clause requirements affecting proposals
+    - Agency-specific formatting or submission requirements
+    - Hidden requirements from non-Section L sources
+    - Complete source traceability for compliance auditing
+  agent: rfp_document_analyzer
+
+align_structure_to_rfp_format:
+  description: >
+    As a bidder developing our winning proposal, structure the proposal outline exactly as the RFP
+    instructs, mirroring the customer's required format and headings following federal compliance
+    standards for our submission.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "proposal structure volume organization" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "structure", "mode": "hybrid"}
+    - CORRECT: "section L proposal volume structure and organization"
+    - MANDATORY: Query parameter must be a simple string like "volume requirements"
+
+    **Structure Alignment Process for Our Proposal:**
+    1. **Follow Section L's Order Exactly for Our Compliance:**
+       - Use Section L as primary blueprint for our proposal outline hierarchy
+       - Mirror required volume divisions (Volume I, II, III, etc.) in our submission structure
+       - Preserve exact section numbering and subsection order in our proposal
+       - Maintain customer's specified terminology and headings throughout our response
+
+    2. **Map to Evaluation Factors for Our Competitive Strategy:**
+       - Cross-reference Section M criteria with Section L structure for our proposal alignment
+       - Align each outline section with relevant evaluation factors for our scoring advantage
+       - Ensure evaluation factors are addressed in correct proposal sections for our compliance
+       - Note factor weights and scoring implications for our strategic emphasis
+
+    3. **Include All Required Volumes/Sections in Our Proposal:**
+       - Account for all required volumes (Administrative, Technical, Past Performance, Price) in our submission
+       - Include special volumes (Executive Summary, Compliance Matrix, Oral Presentation) in our proposal structure
+       - Integrate page limit information at volume/section level for our production planning
+       - Note any required appendices or attachments for our delivery strategy
+
+    4. **Adapt to Agency-Specific Formats for Our Compliance:**
+       - Handle NASA SEWP, GSA Schedule, NIH CIO-SP variations in our proposal format
+       - Adapt to non-standard Section L/M labeling for our submission structure
+       - Identify equivalent instruction/evaluation sections by context for our proposal organization
+       - Preserve agency-specific terminology and conventions in our response
+
+    5. **Hierarchy and Numbering for Our Proposal Structure:**
+       - Use logical hierarchical numbering matching RFP
+       - Preserve RFP's numbering system (1.1, 1.2 vs I.A, I.B, etc.)
+       - Ensure one-to-one mapping between RFP sections and outline
+       - Maintain traceability to specific RFP instruction references
+
+    **Quality Assurance for Structure:**
+    - Verify complete coverage of all Section L requirements
+    - Confirm alignment with Section M evaluation structure
+    - Validate agency-specific format compliance
+    - Ensure no required sections or volumes are omitted
+
+    Current Section Data: {section_context}
+    Current Subsection Data: {subsection_context}
+    Use extracted RFP requirements to create compliant proposal structure.
+  expected_output: >
+    Structured proposal outline framework showing:
+    - Exact RFP-compliant volume and section organization
+    - Hierarchical numbering matching RFP requirements
+    - Mapping between proposal sections and evaluation factors
+    - Integration of all required volumes, appendices, and attachments
+    - Agency-specific format adaptations
+    - Complete structural compliance with Section L instructions
+    - Traceability matrix linking outline to RFP structure
+  agent: structure_alignment_agent
+
+map_compliance_and_evaluation_criteria:
+  description: >
+    As a bidder ensuring our proposal wins, map extracted content to specific compliance requirements
+    and evaluation criteria following federal proposal evaluation methodology and win theme integration
+    for our competitive advantage.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "evaluation criteria mapping compliance" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "requirements", "mode": "hybrid"}
+    - CORRECT: "section M evaluation criteria weights and scoring"
+    - MANDATORY: Query parameter must be a simple string like "compliance mapping"
+
+    **Comprehensive Compliance Mapping Process for Our Proposal:**
+    1. **Requirement Classification and Traceability for Our Compliance:**
+       - Categorize each requirement as mandatory vs. optional for our proposal response
+       - Create traceability matrix linking requirements to RFP sources for our compliance tracking
+       - Identify every "shall" and "must" requirement for our compliance checklist
+       - Note requirements hidden outside Section L (SOW, clauses, attachments) for our comprehensive response
+
+    2. **Evaluation Criteria Integration for Our Scoring Strategy:**
+       - Map each Section L requirement to corresponding Section M factors for our proposal alignment
+       - Identify evaluation sub-factors and their relative weights for our strategic emphasis
+       - Determine Best Value vs LPTA implications for our pricing and technical approach
+       - Note scoring methodology and strength/weakness criteria for our proposal development
+
+    3. **Win Theme Strategic Alignment for Our Competitive Advantage:**
+       - Align provided win themes with evaluation criteria for our proposal differentiation
+       - Map win themes to sections where they reinforce evaluation factors for our scoring advantage
+       - Ensure win themes address customer priorities and discriminators for our competitive positioning
+       - Create strategic placement for maximum evaluation impact in our proposal
+
+    4. **Risk Assessment and Scoring Strategy for Our Proposal:**
+       - Identify high-risk compliance areas requiring special attention in our proposal development
+       - Determine critical sections with highest evaluation weights for our resource allocation
+       - Note discriminators and competitive advantage opportunities for our win strategy
+       - Assess compliance difficulty and resource allocation needs for our proposal planning
+
+    5. **Federal Compliance Standards for Our Proposal:**
+       - Ensure alignment with FAR/DFARS requirements in our proposal approach
+       - Verify agency-specific compliance standards (SEWP, CIO-SP, etc.) for our submission strategy
+       - Validate contract clause proposal requirements for our compliance matrix
+       - Confirm regulatory and policy compliance elements
+
+    **Detailed Mapping for Current Section:**
+    - Map each compliance requirement to specific RFP source citations
+    - Identify evaluation sub-factors and scoring weights
+    - Determine win theme alignment opportunities
+    - Note competitive positioning and differentiation strategies
+    - Assess compliance risk levels and mitigation approaches
+
+    **Quality Assurance:**
+    - Ensure 100% coverage of all compliance requirements
+    - Verify alignment between requirements and evaluation factors
+    - Confirm strategic win theme placement
+    - Validate traceability and source citations
+
+    Current Section Data: {section_context}
+    Current Subsection Data: {subsection_context}
+    Use extracted RFP content and structure to perform comprehensive compliance mapping.
+  expected_output: >
+    Comprehensive compliance and evaluation mapping showing:
+    - Complete traceability matrix (requirements → RFP sources → evaluation factors)
+    - Classification of mandatory vs optional requirements
+    - Section M evaluation criteria mapping with weights and scoring
+    - Strategic win theme alignment with evaluation factors
+    - Risk assessment and compliance difficulty ratings
+    - Competitive positioning and scoring strategy recommendations
+    - Hidden requirements identification and mapping
+    - Quality assurance validation for complete coverage
+  agent: compliance_evaluation_agent
+
+generate_detailed_json_outline:
+  description: >
+    As a bidder creating our winning proposal outline, generate the detailed JSON proposal outline
+    following the exact federal instruction template schema and compliance requirements for our
+    government proposal submission.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "detailed proposal outline instructions" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "requirements", "mode": "hybrid"}
+    - CORRECT: "federal proposal outline requirements and writer instructions"
+    - MANDATORY: Query parameter must be a simple string like "outline schema"
+
+    **MANDATORY JSON Schema Requirements for Our Proposal (Federal Template Standard):**
+    Generate a JSON object with these EXACT mandatory fields for our proposal outline:
+    - section_number: Hierarchical identifier exactly matching RFP structure for our compliance
+    - heading: Exact RFP wording for section title (preserve customer terminology) for our submission
+    - section_purpose: 200-250 words explaining section intent and evaluation focus
+    - instructions_to_writer: Comprehensive 500+ word actionable guidance
+    - source_mapping: Array of specific RFP references with exact citations
+    - win_theme_alignment: Array of relevant win theme names/IDs
+
+    **Instructions to Writer Requirements (Most Critical Field for Our Proposal):**
+    Create comprehensive, actionable instructions as flowing paragraphs that provide complete guidance for our proposal writers. Begin with complete compliance coverage addressing every Section L requirement for this section with specific citations, all SOW/PWS tasks and deliverables relevant to this section, hidden requirements from contract clauses or attachments, format requirements including page limits and submission guidelines, and required templates or attachments to include.
+
+    Continue with evaluation strategy integration that covers specific Section M evaluation criteria and sub-factors, scoring methodology and weight implications for this section, Best Value vs LPTA considerations and strategy, strength/weakness criteria and how to achieve "Strength" ratings, and competitive positioning and differentiation opportunities for our proposal.
+
+    Integrate win theme strategic guidance with specific instructions on incorporating aligned win themes, how win themes reinforce evaluation criteria in this section, strategic messaging to address customer priorities, and discriminator emphasis and competitive advantage positioning that sets our proposal apart.
+
+    Provide content development guidance explaining what to include and how to structure content, specific data, evidence, or documentation required, technical depth and detail level appropriate for evaluators, compliance warnings and critical "must include" elements, and cross-references to other proposal sections when needed.
+
+    Conclude with risk mitigation and quality assurance including compliance warnings for high-risk requirements, critical requirements that could cause proposal rejection, quality control checkpoints and validation steps, and common mistakes to avoid for this section type that could impact our proposal scoring.
+
+    **Federal Compliance Standards:**
+    - Ensure FAR/DFARS compliance requirements are addressed
+    - Include agency-specific requirements (NASA SEWP, GSA, NIH CIO-SP)
+    - Address contract clause proposal requirements
+    - Note any security, certification, or regulatory requirements
+
+    **Quality Standards for JSON Output:**
+    - Instructions must be 500+ words minimum with specific, actionable guidance
+    - Section purpose must be 200-250 words explaining evaluation context
+    - Source mapping must cite exact RFP sections, clauses, and attachments
+    - Win theme alignment must be strategically relevant to evaluation criteria
+    - JSON must be well-formed and validate properly for automated processing
+
+    **Context Data:**
+    Item Type: {item_type}
+    Section Title: {section_title}
+    Subsection Title: {subsection_title}
+    Section Context: {section_context}
+    Subsection Context: {subsection_context}
+
+    **CRITICAL OUTPUT REQUIREMENT:**
+    MUST return ONLY valid JSON in this exact format - NO additional text, explanations, or markdown:
+    {{
+      "section_number": "X.X or X.X.X (matching RFP exactly)",
+      "heading": "Section/Subsection Title per RFP (exact customer terminology)",
+      "section_purpose": "Detailed 200-250 word explanation of purpose, evaluation focus, customer priorities, and strategic importance. Explain why this section exists, what evaluators will assess, and how it contributes to overall proposal evaluation and scoring...",
+      "instructions_to_writer": "Comprehensive 500+ word actionable guidance written as flowing paragraphs covering complete compliance requirements from Section L with specific citations. Address all relevant Section M evaluation criteria and scoring strategy with detailed explanations of how our proposal will be evaluated. Provide strategic win theme integration with specific messaging guidance that differentiates our solution. Include comprehensive content development requirements specifying required data, evidence, and documentation that must be included. Detail risk mitigation strategies including compliance warnings and critical requirements that could impact our proposal evaluation. Establish quality assurance checkpoints and highlight common mistakes to avoid for this section type. Specify format requirements and submission guidelines that our production team must follow. Note any required templates, attachments, or cross-references to other proposal sections...",
+      "source_mapping": ["RFP Section L.X.X (specific requirement)", "Section M.Y.Y (evaluation criteria)", "SOW Section Z.Z (deliverable requirement)", "FAR/DFARS Clause Reference", "Attachment Name/Number"],
+      "win_theme_alignment": ["Theme1 Name", "Theme2 Name", "Theme3 Name"]
+    }}
+
+    **IMPORTANT FORMATTING RULES:**
+    - Start immediately with opening brace {{
+    - End with closing brace }}
+    - No "Here is the JSON" or explanatory text
+    - No markdown code blocks (```json)
+    - Ensure complete JSON structure is returned
+    - All strings must be properly escaped for JSON validity
+    - If response approaches length limits, prioritize completing JSON structure
+
+    Use all previous analysis (RFP extraction, structure alignment, compliance mapping) to generate
+    the comprehensive JSON outline that serves as a complete blueprint for proposal writers.
+  expected_output: >
+    A detailed JSON outline object following the exact federal instruction template schema:
+    {{
+      "section_number": "X.X or X.X.X (matching RFP exactly)",
+      "heading": "Section/Subsection Title per RFP (exact customer terminology)",
+      "section_purpose": "Detailed 200-250 word explanation of purpose, evaluation focus, and strategic importance...",
+      "instructions_to_writer": "Comprehensive 500+ word actionable guidance covering compliance, evaluation strategy, win themes, content guidance, risk mitigation, and quality assurance...",
+      "source_mapping": ["RFP Section L.X.X", "Section M.Y.Y", "SOW Z.Z", "Contract Clauses", "Attachments"],
+      "win_theme_alignment": ["Theme1", "Theme2", "Theme3"]
+    }}
+
+    Must be valid JSON format ready for proposal writers to use as comprehensive blueprint
+    for federal government proposal development with full compliance and competitive positioning.
+  agent: federal_json_outline_agent
+
+validate_json_completeness_and_compliance:
+  description: >
+    As a bidder ensuring our proposal meets all requirements, conduct comprehensive validation of
+    our generated JSON outline to ensure complete compliance with federal proposal requirements
+    and instruction template standards for our winning submission.
+
+    OPENSEARCH TOOL USAGE - STRING QUERIES ONLY:
+    - Use OpenSearch tool with unique ID: {unique_id}
+    - Provide ONLY plain natural language queries (NO JSON format)
+    - Valid search modes: 'bm25', 'semantic', or 'hybrid' (prefer 'hybrid')
+    - Example: Use "compliance validation requirements" NOT {"query": "...", "mode": "..."}
+    - CRITICAL: Never use dictionary format, always use simple text strings
+    - WRONG: {"query": "validation", "mode": "hybrid"}
+    - CORRECT: "proposal compliance validation and quality assurance"
+    - MANDATORY: Query parameter must be a simple string like "validation checklist"
+
+    **Comprehensive Validation Process for Our Proposal:**
+
+    1. **JSON Schema and Structure Validation for Our Outline:**
+       - Verify all mandatory fields are present and properly formatted in our proposal outline
+       - Validate JSON syntax and structure integrity for our automated processing
+       - Confirm proper data types for each field in our proposal structure
+       - Check for proper escaping of special characters in our content
+       - Ensure consistent formatting throughout our proposal outline
+
+    2. **Federal Compliance Completeness Review for Our Proposal:**
+       - Verify 100% coverage of all Section L requirements in our proposal response
+       - Confirm every "shall" and "must" requirement is addressed in our outline
+       - Validate coverage of all SOW/PWS tasks and deliverables in our proposal sections
+       - Check for hidden requirements from contract clauses in our compliance approach
+       - Ensure all required attachments and templates are noted in our submission plan
+
+    3. **Evaluation Criteria Alignment Validation for Our Scoring:**
+       - Confirm complete mapping to Section M evaluation factors in our proposal structure
+       - Verify all sub-factors and scoring criteria are addressed in our response sections
+       - Validate strategic alignment with evaluation weights for our competitive advantage
+       - Check for Best Value vs LPTA compliance in our proposal approach
+       - Ensure competitive positioning opportunities are captured
+
+    4. **Win Theme Integration Quality Assurance:**
+       - Verify strategic placement of win themes across sections
+       - Confirm win theme alignment with evaluation criteria
+       - Validate that themes reinforce customer priorities
+       - Check for consistent win theme messaging
+       - Ensure all major themes have appropriate coverage
+
+    5. **Content Quality and Usability Validation:**
+       - Verify instructions_to_writer meets 500+ word minimum
+       - Confirm section_purpose meets 200-250 word requirement
+       - Validate actionable and specific guidance quality
+       - Check for clear compliance warnings and risk mitigation
+       - Ensure source citations are complete and accurate
+
+    6. **Agency-Specific Compliance Validation:**
+       - Verify adaptation to agency format (NASA SEWP, GSA, NIH CIO-SP)
+       - Confirm proper handling of agency-specific requirements
+       - Validate compliance with FAR/DFARS or special clauses
+       - Check for proper security/certification requirements
+       - Ensure portal or submission-specific requirements
+
+    **Quality Metrics and Standards:**
+    - All required sections from RFP structure are included
+    - Every compliance requirement has clear writer guidance
+    - All evaluation factors are strategically addressed
+    - Win themes are optimally positioned for competitive advantage
+    - Source traceability is complete and accurate
+    - JSON structure enables automated processing
+
+    **Validation Output Requirements:**
+    Document any gaps, issues, or recommendations for improvement.
+    Provide specific guidance for addressing any identified deficiencies.
+    Confirm readiness for proposal writer utilization.
+
+    Current Section Data: {section_context}
+    Current Subsection Data: {subsection_context}
+    Use generated JSON outline and all previous analysis for comprehensive validation.
+  expected_output: >
+    Comprehensive validation report including:
+    - JSON schema and structure validation results
+    - Federal compliance completeness assessment
+    - Evaluation criteria alignment verification
+    - Win theme integration quality review
+    - Content quality and usability assessment
+    - Agency-specific compliance validation
+    - Gap analysis and improvement recommendations
+    - Final readiness certification for proposal development
+    - Quality metrics scorecard
+    - Specific remediation guidance for any identified issues
+  agent: outline_validation_agent
