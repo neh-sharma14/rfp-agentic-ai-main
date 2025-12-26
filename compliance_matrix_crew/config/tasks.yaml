@@ -1,0 +1,40 @@
+analyze_compliance_task:
+  description: >
+    Under the guidance of the manager agent, analyze each requirement against the proposal outline to determine compliance status. The analysis process should:
+
+    1. Initial Analysis Phase:
+       - Review all requirements and outline sections
+       - Identify key elements and patterns in requirements
+       - Map potential relationships between requirements and outline sections
+
+    2. Detailed Matching Phase:
+       For each requirement:
+       - Analyze the requirement statement to understand its intent and key elements
+       - Search through the proposal outline sections and subsections to find matching content
+       - For each potential match:
+         * Compare the requirement with the section/subsection content
+         * Determine if the content adequately addresses the requirement
+         * Assess if any additional context or information is needed
+
+    3. Compliance Determination Phase:
+       - Make a compliance determination:
+         * Pass: If the requirement is fully addressed in the outline
+         * Fail: If the requirement is not addressed or inadequately addressed
+       - Provide clear justification for the compliance status
+       - Map the requirement to the relevant section(s) in the outline
+
+    4. Validation Phase:
+       - Review all compliance determinations for consistency
+       - Ensure all requirements have been analyzed
+       - Verify justifications are clear and well-supported
+       - Confirm proper mapping of requirements to outline sections
+
+    Requirements to analyze: {requirements}
+    Proposal outline: {outline}
+  expected_output: >
+    A list of compliance matrix entries wrapped in a matrices field, where each entry contains:
+    - requirement: The original requirement text
+    - status: "Pass" or "Fail" based on compliance analysis
+    - justification: Clear explanation of why the status was assigned
+    - sectionNo: The section number from the requirement
+  agent: compliance_analyzer
