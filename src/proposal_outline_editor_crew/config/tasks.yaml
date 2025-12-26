@@ -1,0 +1,20 @@
+revise_proposal_outline_task:
+  description: >
+    Take the user’s prompt about a specific outline section, revise the section, verify the revised section
+    meets RFP requirements, and reorganize or expand it to ensure clarity and logical flow.
+    Ensure it fits cohesively within the overall proposal structure.
+    If information is needed from a different section in the RFP to fulfill request, search for the section for the relevant information.
+
+    User prompt: {user_prompt}
+    
+    Outline section to revise: {outline_section}
+
+    Original proposal outline: {proposal_outline}
+
+  expected_output: >
+    A clearly refined outline section that:
+      - Addresses the specific user request or prompt.
+      - Integrates all relevant RFP requirements.
+      - Maintains consistency in style and structure with the rest of the proposal outline.
+      - Demonstrates logical progression and clarity in headings, subsections, and content.
+  agent: proposal_outline_editor
