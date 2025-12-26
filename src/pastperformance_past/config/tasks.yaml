@@ -1,0 +1,38 @@
+research_task:
+  description: >
+    You are an expert in government contracting and proposal writing.
+    Given the following structured requirement:
+    Section: <<< {section} >>>
+    Subsection: <<< {subsection} >>>
+    Requirement: <<< {requirement} >>>
+    Context: <<< {context} >>>
+
+    Analyze the text to understand:
+    1. The specific requirement that needs to be addressed
+    2. The key points that need to be covered in the response
+    3. How to structure the response to address all aspects of the requirement
+    4. Identify relevant past performance examples that match the requirement
+    5. Identify the exact number of required past performance data points from the text.
+    Present your analysis in a clear, structured format, including:
+    - Source of information (which document/experience it comes from)
+    - Specific examples that match the requirement
+    - Confidence level in the match
+  expected_output: >
+    A clear analysis of the requirement text, identifying key points to address and specific examples from past performance.
+  agent: requirement_analyzer
+
+generate_report_task:
+  description: >
+    Using the analyzed requirement text and identified examples, generate a detailed past performance response that:
+    1. Directly addresses all aspects of the requirement
+    2. Provides specific examples and details, citing the source of each example ,do not skip any section.
+    3. Maintains a professional tone
+    3.Supplement missing or unclear section or details using your expertise and broader knowledge.
+    5. Is clear and well-structured
+    6. Includes a brief validation statement at the end confirming the source of information.
+    The response should be well-written single paragraph that fully addresses the requirement and should start directly without any title or header.
+    Reference available knowledge sources only to align with the expected format, tone, and style of writing, rather than as primary sources of data.
+    Save the output as written into report-writer.md to file {my_bucket}.
+  expected_output: >
+    A detailed, well-written paragraph that directly addresses the requirement text, with source citations and validation and follows industry standards, and maintains consistency in format, tone, and style as seen in reference materials.
+  agent: performance_review_writer
